@@ -4,6 +4,15 @@ const UserController = require('./controllers/UserController');
 const AddressController = require('./controllers/AddressController');
 const TechController = require('./controllers/TechController');
 const ReportController = require('./controllers/ReportController');
+const bodyParser = require('body-parser');
+const app = express();
+
+// BODY-PARSER CONFIGURATION
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+extended: true
+}));
+//
 
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
